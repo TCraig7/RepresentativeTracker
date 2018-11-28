@@ -1,1 +1,21 @@
+body {
+  font-family: 'Bree Serif', serif;
+}
 
+.topnav-container {
+  /* background-color: #1D4175; */
+  background-image: linear-gradient(to bottom right, #1D5175, #142e52, #0a1729);
+  padding: 1rem;
+}
+
+.nav-rep {
+  font-size: 2.2rem;
+  color: #FDFAF0;
+  text-align: center;
+}
+
+.nav-tracker {
+  font-size: 2.2rem;
+  color: #FDFAF0;
+  text-align: center;
+}
