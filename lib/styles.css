@@ -8,7 +8,9 @@ body {
 }
 
 .topnav-container {
-  padding: .5rem;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -20,7 +22,7 @@ body {
 }
 
 .nav-title-item {
-  font-size: 2.2rem;
+  font-size: 2.7rem;
   color: #FFF;
   padding-left: 2rem;
 }
@@ -31,13 +33,14 @@ body {
 }
 
 .about-item {
-  font-size: .8rem;
+  font-size: 1rem;
   padding-left: 2rem;
   padding-top: 1rem;
   color: #FFF;
 }
 
 .search-container {
+  margin-top: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,30 +61,33 @@ body {
 .flex-items {
   text-align: center;
   background-color: rgba(43, 42, 53, 0.8);
-  min-width: 25%;
+  min-width: 35%;
   min-height: 35%;
   padding: 5rem;
   border-radius: 10px;
   margin: 2rem;
 }
 
-.title-bold {
-  font-weight: 600;
+.item-title {
   color: white;
   padding-bottom: .5rem;
+  font-size: 2rem;
 }
 
 .dropdown {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   cursor: pointer;
+  margin: 1rem;
+  font-size: 1rem;
 }
 
 #find-button {
-  margin: .4rem;
+  margin: .7rem;
   border-radius: 25px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   background-color: #2B2A35;
   color: white;
+  font-size: 1.1rem;
 }
 
 #find-button:hover {
