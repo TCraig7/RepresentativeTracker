@@ -44,8 +44,15 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-	// This file is in the entry point in your webpack config.
 	"use strict";
+
+	// This file is in the entry point in your webpack config.
+	$("#find-button").on("click", function () {
+	  $('.search-container').slideUp(900);
+	  $('.index-container').slideDown();
+	});
+
+	$(".topnav-container").on("click", function () {});
 
 /***/ })
 /******/ ]);
