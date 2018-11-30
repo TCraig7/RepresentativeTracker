@@ -52,7 +52,16 @@
 	  $('.index-container').slideDown();
 	});
 
-	$(".topnav-container").on("click", function () {});
+	$('.name-link').on("click", function () {
+	  $('.index-container').slideUp(900);
+	  $('.individual-member-container').slideDown();
+	});
+
+	$(".topnav-container").on("click", function () {
+	  $('.index-container').slideUp(600);
+	  $('.individual-member-container').slideUp(600);
+	  $('.search-container').slideDown(600);
+	});
 
 /***/ })
 /******/ ]);
