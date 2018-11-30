@@ -52,6 +52,13 @@ body {
   justify-content: space-evenly;
 }
 
+.individual-index {
+  color: white;
+  padding-bottom: 1.5rem;
+  font-size: 1.5rem;
+  text-align: left;
+}
+
 .individual-member-container {
   display: flex;
   flex-direction: column;
@@ -70,7 +77,7 @@ body {
 
 .item-title {
   color: white;
-  padding-bottom: .5rem;
+  padding-bottom: 1.5rem;
   font-size: 2rem;
 }
 
@@ -79,6 +86,15 @@ body {
   cursor: pointer;
   margin: 1rem;
   font-size: 1rem;
+}
+
+.name-link {
+
+}
+
+.name-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 #find-button {
