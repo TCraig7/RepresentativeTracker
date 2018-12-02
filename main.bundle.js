@@ -64,7 +64,7 @@
 	};
 
 	var displaySenators = function displaySenators(senator) {
-	  $('#senators').append("\n    <article class=\"individual-index\">\n      <p class=\"name-link sen-name\">" + senator.name + "</p>\n      <p class=\"sen-id\">" + senator.id + "</p>\n      <p class=\"sen-party\">" + senator.party + "</p>\n      <p class=\"sen-twitter\">" + senator.twitter + "</p>\n      <p class=\"sen-facebook\">" + senator.facebook + "</p>\n      <p class=\"sen-seniority\">" + senator.seniority + "</p>\n      <p class=\"sen-next-election\">" + senator.next_election + "</p>\n    </article>");
+	  $('#senators').append("\n    <article class=\"individual-index\">\n      <p class=\"name-link sen-name\">" + senator.name + "</p>\n      <p class=\"member-id sen-id\" value=\"" + senator.id + "\">" + senator.id + "</p>\n      <p class=\"sen-party\">Party: " + senator.party + "</p>\n      <p class=\"sen-twitter\">" + senator.twitter + "</p>\n      <p class=\"sen-facebook\">" + senator.facebook + "</p>\n      <p class=\"sen-seniority\">Years in office: " + senator.seniority + "</p>\n      <p class=\"sen-next-election\">Up for re-election: " + senator.next_election + "</p>\n    </article>");
 	};
 
 	var getRepresentatives = function getRepresentatives() {
@@ -85,7 +85,21 @@
 	};
 
 	var displayRepresentatives = function displayRepresentatives(representative) {
-	  $('#representatives').append("\n    <article class=\"individual-index\">\n      <p class=\"name-link rep-name\">" + representative.name + "</p>\n      <p class=\"rep-id\">" + representative.id + "</p>\n      <p class=\"rep-party\">" + representative.party + "</p>\n      <p class=\"rep-twitter\">" + representative.twitter + "</p>\n      <p class=\"rep-facebook\">" + representative.facebook + "</p>\n      <p class=\"rep-seniority\">" + representative.seniority + "</p>\n      <p class=\"rep-next-election\">" + representative.next_election + "</p>\n    </article>");
+	  $('#representatives').append("\n    <article class=\"individual-index\">\n      <p class=\"name-link rep-name\">" + representative.name + "</p>\n      <p class=\"member-id rep-id\">" + representative.id + "</p>\n      <p class=\"rep-party\">Party: " + representative.party + "</p>\n      <p class=\"rep-twitter\">" + representative.twitter + "</p>\n      <p class=\"rep-facebook\">" + representative.facebook + "</p>\n      <p class=\"rep-seniority\">Years in office: " + representative.seniority + "</p>\n      <p class=\"rep-next-election\">Up for re-election: " + representative.next_election + "</p>\n    </article>");
+	};
+
+	var getIndividualMember = function getIndividualMember(q) {
+	  fetch("https://thecongresstracker.herokuapp.com//api/v1/members/" + q).then(function (response) {
+	    return response.json();
+	  }).then(function (parsedResponse) {
+	    return displayMember(parsedResponse);
+	  }).catch(function (error) {
+	    return console.error({ error: error });
+	  });
+	};
+
+	var displayMember = function displayMember(member) {
+	  $('.individual-item').append("\n    <article class=\"individual-member\">\n      <p class=\"name-link member-name\">" + member.first_name + " " + member.last_name + "</p>\n      <p class=\"member-id\" value=\"" + member.id + "\">" + member.id + "</p>\n      <p class=\"member-party\">Party: " + member.party + "</p>\n      <p class=\"member-twitter\">" + member.twitter + "</p>\n      <p class=\"member-facebook\">" + member.facebook + "</p>\n    </article>");
 	};
 
 	$("#find-button").on("click", function () {
@@ -95,9 +109,11 @@
 	  $('.index-container').slideDown();
 	});
 
-	$('.name-link').on("click", function () {
-	  $('.index-container').slideUp(900);
-	  $('.individual-member-container').slideDown();
+	$(".index-container").on("click", '.name-link', function () {
+	  var q = this.parentElement.childNodes[3].innerHTML;
+	  getIndividualMember(q);
+	  $('.index-container').slideUp(1100);
+	  $('.individual-member-container').slideDown(1100);
 	});
 
 	$(".topnav-container").on("click", function () {
