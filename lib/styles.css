@@ -65,6 +65,14 @@ body {
   align-items: center;
 }
 
+.individual-item {
+  color: white;
+}
+
+.articles {
+  color: white;
+}
+
 .flex-items {
   text-align: center;
   background-color: rgba(43, 42, 53, 0.8);
