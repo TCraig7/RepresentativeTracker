@@ -159,11 +159,14 @@ font-size: 1.4rem;
 
 #close-button {
   font-size: 2rem;
+  color: white;
   float: right;
 }
 
 #close-button:hover {
   font-size: 2.2rem;
+  color: white;
+  float: right;
 }
 
 #index-close-button {
