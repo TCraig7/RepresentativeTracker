@@ -64,7 +64,7 @@
 	};
 
 	var displaySenators = function displaySenators(senator) {
-	  $('#senators').append("\n    <article class=\"individual-index\">\n      <p class=\"name-link sen-name\">" + senator.name + "</p>\n      <p class=\"member-id sen-id\" value=\"" + senator.id + "\">" + senator.id + "</p>\n      <p class=\"sen-party\">Party: " + senator.party + "</p>\n      <p class=\"sen-twitter\">" + senator.twitter + "</p>\n      <p class=\"sen-facebook\">" + senator.facebook + "</p>\n      <p class=\"sen-seniority\">Years in office: " + senator.seniority + "</p>\n      <p class=\"sen-next-election\">Up for re-election: " + senator.next_election + "</p>\n    </article>");
+	  $('#senators').append("\n    <article class=\"individual-index\">\n      <p class=\"name-link sen-name\">" + senator.name + "</p>\n      <p class=\"member-id sen-id\" value=\"" + senator.id + "\">" + senator.id + "</p>\n      <p class=\"sen-party\">Party: " + senator.party + "</p>\n      <p class=\"sen-seniority\">Years in office: " + senator.seniority + "</p>\n      <p class=\"sen-next-election\">Up for re-election: " + senator.next_election + "</p>\n    </article>");
 	};
 
 	var getRepresentatives = function getRepresentatives() {
@@ -99,13 +99,13 @@
 	};
 
 	var displayMember = function displayMember(member) {
-	  $('.individual-item').append("\n    <article class=\"individual-member\">\n      <p class=\"member-name\">" + member.first_name + " " + member.last_name + "</p>\n      <p class=\"member-id\" value=\"" + member.id + "\">" + member.id + "</p>\n      <p class=\"member-party\">Party: " + member.party + "</p>\n      <p class=\"member-twitter\">" + member.twitter + "</p>\n      <p class=\"member-facebook\">" + member.facebook + "</p>\n    </article>");
+	  $('.individual-item').append("\n    <article class=\"individual-member\">\n      <p class=\"member-name\">" + member.first_name + " " + member.last_name + "</p>\n      <p class=\"member-id\" value=\"" + member.id + "\">" + member.id + "</p>\n      <p class=\"member-party\">Party: " + member.party + "</p>\n      <a href=\"https://twitter.com/" + member.twitter + "\"class=\"fab fa-twitter-square\" id=\"member-social-media\"></a><a href=\"https://www.facebook.com/" + member.facebook + "\" class=\"fab fa-facebook\" id=\"member-social-media\"></a>\n    </article>");
 	};
 
 	var getArticles = function getArticles(name) {
 	  var splitName = name.split(' ');
 	  var first = splitName[0];
-	  var last = splitName[1];
+	  var last = splitName[splitName.length - 1];
 	  fetch("https://thecongresstracker.herokuapp.com/api/v1/articles?first_name=" + first + "&last_name=" + last).then(function (response) {
 	    return response.json();
 	  }).then(function (parsedResponse) {
@@ -122,7 +122,7 @@
 	};
 
 	var displayArticles = function displayArticles(article) {
-	  $('.articles-item').append("\n    <article class=\"article\">\n      <a href=\"" + article.url + "\" class=\"article-title-link\">" + article.title + "</p>\n      <p class=\"article-description\">" + article.description + "</p>\n    </article>");
+	  $('.articles-item').append("\n    <article class=\"article\">\n      <a href=\"" + article.url + "\" class=\"article-title-link\">" + article.title + "</a>\n      <p class=\"article-description\">" + article.description + "</p>\n    </article>");
 	};
 
 	$("#find-button").on("click", function () {
@@ -130,6 +130,7 @@
 	  getSenators();
 	  $('.search-container').slideUp(900);
 	  $('.index-container').slideDown();
+	  $('#index-close-button').slideDown(600);
 	});
 
 	$(".index-container").on("click", '.name-link', function () {
@@ -138,13 +139,35 @@
 	  getIndividualMember(q);
 	  getArticles(name);
 	  $('.index-container').slideUp(1100);
+	  $('#index-close-button').slideUp(600);
 	  $('.individual-member-container').slideDown(1100);
+	});
+
+	$("#close-button").on("click", function () {
+	  $('.individual-member-container').slideUp(1100);
+	  $('.index-container').slideDown(1100);
+	  $('.individual-member').remove();
+	  $('.article').remove();
+	  $('#index-close-button').slideDown(600);
 	});
 
 	$(".topnav-container").on("click", function () {
 	  $('.index-container').slideUp(600);
 	  $('.individual-member-container').slideUp(600);
 	  $('.search-container').slideDown(600);
+	  $('.individual-member').remove();
+	  $('.article').remove();
+	  $('.individual-index').remove();
+	});
+
+	$("#index-close-button").on("click", function () {
+	  $('.index-container').slideUp(600);
+	  $('.individual-member-container').slideUp(600);
+	  $('.search-container').slideDown(600);
+	  $('.individual-member').remove();
+	  $('.article').remove();
+	  $('.individual-index').remove();
+	  $('#index-close-button').slideUp(600);
 	});
 
 /***/ })
