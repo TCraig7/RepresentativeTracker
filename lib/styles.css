@@ -159,7 +159,7 @@ font-size: 1.4rem;
 
 #close-button {
   font-size: 2rem;
-  text-align: right;
+  float: right;
 }
 
 #close-button:hover {
