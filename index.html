@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="lib/reset.css">
     <link rel="stylesheet" type="text/css" href="lib/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   </head>
   <body>
     <div class="topnav-container">
@@ -72,6 +73,9 @@
         <button id="find-button" type="button">Find Your Members of Congress</button>
       </div>
     </div>
+    <div>
+      <p class="far fa-window-close" id="index-close-button"></p>
+    </div>
     <div class="index-container" style="display:none;">
       <div class="flex-items senators-item">
         <div class="item-title">Senators</div>
@@ -87,8 +91,10 @@
     </div>
     <div class="individual-member-container" style="display:none;">
       <div class="flex-items individual-item">
+        <p class="far fa-window-close" id="close-button"></p>
       </div>
       <div class="flex-items articles-item">
+        <p id="article-item-title">Articles that mention this member of congress:</p>
       </div>
     </div>
     <script

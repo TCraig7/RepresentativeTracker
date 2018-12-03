@@ -67,10 +67,23 @@ body {
 
 .individual-item {
   color: white;
+  text-align: left;
 }
 
-.articles {
+.articles-item {
   color: white;
+  text-align: left;
+}
+
+.article {
+  color: white;
+  text-align: left;
+  padding-top: 1rem;
+}
+
+.article-title-link {
+  color: white;
+  padding-bottom: .2rem;
 }
 
 .flex-items {
@@ -105,6 +118,20 @@ font-size: 1.4rem;
   cursor: pointer;
 }
 
+.member-name {
+  font-size: 2.2rem;
+  padding-bottom: 2rem;
+}
+
+.member-id {
+  display: none;
+}
+
+.member-party {
+  font-size: 1.8rem;
+  padding-bottom: 2rem;
+}
+
 #find-button {
   margin: .7rem;
   border-radius: 25px;
@@ -118,4 +145,35 @@ font-size: 1.4rem;
   color: white;
   background-color: #A55F72;
   cursor: pointer;
+}
+
+#article-item-title {
+  font-size: 1.4rem;
+}
+
+#member-social-media {
+  font-size: 2rem;
+  color: white;
+  padding: 1rem;
+}
+
+#close-button {
+  font-size: 2rem;
+  float: right;
+}
+
+#close-button:hover {
+  font-size: 2.2rem;
+}
+
+#index-close-button {
+  color: white;
+  font-size: 2rem;
+  float: right;
+  display: none;
+}
+
+#index-close-button:hover {
+  color: white;
+  font-size: 2.2rem;
 }
