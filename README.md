@@ -2,7 +2,7 @@
 
 ![image](https://user-images.githubusercontent.com/36015215/49393403-585ded00-f6ee-11e8-9255-c8abd5fbc4b2.png)
 
-Representative Tracker s a fully functioning application that allows a user to find their representatives and senators for the United States Congress by state. When you click on an individual congressperson's name, you are taken to their page which also shows the 20 most recent news articles that mention their name.
+Representative Tracker (shown on the deployed applicatin as Congress Tracker) is a fully functioning application that allows a user to find their representatives and senators for the United States Congress by state. When you click on an individual congressperson's name, you are taken to their page which also shows the 20 most recent news articles that mention their name.
 
 To see the application, please go to the following link: https://tcraig7.github.io/RepresentativeTracker/
 
