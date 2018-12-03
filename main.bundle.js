@@ -99,7 +99,30 @@
 	};
 
 	var displayMember = function displayMember(member) {
-	  $('.individual-item').append("\n    <article class=\"individual-member\">\n      <p class=\"name-link member-name\">" + member.first_name + " " + member.last_name + "</p>\n      <p class=\"member-id\" value=\"" + member.id + "\">" + member.id + "</p>\n      <p class=\"member-party\">Party: " + member.party + "</p>\n      <p class=\"member-twitter\">" + member.twitter + "</p>\n      <p class=\"member-facebook\">" + member.facebook + "</p>\n    </article>");
+	  $('.individual-item').append("\n    <article class=\"individual-member\">\n      <p class=\"member-name\">" + member.first_name + " " + member.last_name + "</p>\n      <p class=\"member-id\" value=\"" + member.id + "\">" + member.id + "</p>\n      <p class=\"member-party\">Party: " + member.party + "</p>\n      <p class=\"member-twitter\">" + member.twitter + "</p>\n      <p class=\"member-facebook\">" + member.facebook + "</p>\n    </article>");
+	};
+
+	var getArticles = function getArticles(name) {
+	  var splitName = name.split(' ');
+	  var first = splitName[0];
+	  var last = splitName[1];
+	  fetch("https://thecongresstracker.herokuapp.com/api/v1/articles?first_name=" + first + "&last_name=" + last).then(function (response) {
+	    return response.json();
+	  }).then(function (parsedResponse) {
+	    return compileArticles(parsedResponse);
+	  }).catch(function (error) {
+	    return console.error({ error: error });
+	  });
+	};
+
+	var compileArticles = function compileArticles(articles) {
+	  articles.forEach(function (article) {
+	    displayArticles(article);
+	  });
+	};
+
+	var displayArticles = function displayArticles(article) {
+	  $('.articles-item').append("\n    <article class=\"article\">\n      <a href=\"" + article.url + "\" class=\"article-title-link\">" + article.title + "</p>\n      <p class=\"article-description\">" + article.description + "</p>\n    </article>");
 	};
 
 	$("#find-button").on("click", function () {
@@ -111,7 +134,9 @@
 
 	$(".index-container").on("click", '.name-link', function () {
 	  var q = this.parentElement.childNodes[3].innerHTML;
+	  var name = this.parentElement.childNodes[1].innerText;
 	  getIndividualMember(q);
+	  getArticles(name);
 	  $('.index-container').slideUp(1100);
 	  $('.individual-member-container').slideDown(1100);
 	});
