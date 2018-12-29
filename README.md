@@ -6,6 +6,8 @@ Representative Tracker (shown on the deployed application as Congress Tracker) i
 
 To see the application, please go to the following link: https://tcraig7.github.io/RepresentativeTracker/
 
+Please note that due to the back-end site being hosted for free on Heroku, it can take a couple of seconds for the            server to boot up and load the data the first time you make a request. Please be patient!
+
 Representative Tracker pulls its API data from the back-end project [Congress](https://github.com/TCraig7/Congress).
 
 ## Future Features
